@@ -82,8 +82,10 @@ module Twitter
     
     # If you want to get results do something other than iterate over them.
     def fetch
-      @query[:q] = @query[:q].join(' ')
-      self.class.get('/search.json', {:query => @query})
+      tmp = Hash.new
+      tmp.replace(@query)
+      tmp[:q] = @query[:q].join(' ')
+      self.class.get('/search.json', {:query => tmp})
     end
     
     def each

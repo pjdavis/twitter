@@ -71,6 +71,14 @@ describe Twitter::Search do
     @search.query[:geocode].should == '40.757929,-73.985506,25mi'
   end
   
+  it "should not replace the current query when fetching" do
+  @search.class.stub!(:get).and_return(true)
+    @search.containing('milk').containing('cheeze')
+    @search.query[:q].should == ['milk', 'cheeze']
+    @search.fetch().should == true
+    @search.query[:q].should == ['milk', 'cheeze']
+  end
+  
   describe "fetching" do
     before do
       @response = open(File.dirname(__FILE__) + '/fixtures/friends_timeline.xml').read
