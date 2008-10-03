@@ -37,6 +37,10 @@ describe Twitter::Search do
     @search.contains('milk').query[:q].should include('milk')
   end  
   
+  it "should be able to specify filters" do
+    @search.filter('links').query[:q].should include ('filter:links')
+  end
+  
   it "should be able to specify hashed" do
     @search.hashed('twitter').query[:q].should include('#twitter')
   end

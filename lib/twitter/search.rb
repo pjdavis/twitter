@@ -37,6 +37,11 @@ module Twitter
     end
     alias :contains :containing
     
+    def filter(filter)
+      @query[:q] << "filter:#{filter}"
+      self
+    end
+    
     # adds filtering based on hash tag ie: #twitter
     def hashed(tag)
       @query[:q] << "##{tag}"
