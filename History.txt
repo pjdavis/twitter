@@ -1,3 +1,11 @@
+0.3.9 - December 19, 2008
+      * Added page functionality for the rpp, letting you specify which page of a query to get back.
+      * Fixed an error in the search specfile.
+
+0.3.8 - October 03, 2008
+      * added filter option to search, letting you specify options to filter by (i.e. links).
+      * fixed issue where Fetch would overwrite the @query[:q] array with a string, raising an undefined method error.
+
 0.3.7 - August 26, 2008
 			* Fixed source param not getting through
 
