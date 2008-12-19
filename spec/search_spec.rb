@@ -38,7 +38,7 @@ describe Twitter::Search do
   end  
   
   it "should be able to specify filters" do
-    @search.filter('links').query[:q].should include ('filter:links')
+    @search.filter('links').query[:q].should include('filter:links')
   end
   
   it "should be able to specify hashed" do
